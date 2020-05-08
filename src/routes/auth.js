@@ -5,12 +5,14 @@ import { Route, Redirect } from 'react-router-dom';
 import AuthLayout from '../pages/_Layout/auth/auth-layout';
 import PublicLayout from '../pages/_Layout/public/public-layout';
 
+import { store } from '~/store';
+
 export default function RouterWrapper({
     component: Component,
     isPrivate,
     ...rest
 }) {
-    const signed = false;
+    const { signed } = store.getState().auth;
 
     if (!signed && isPrivate) {
         return <Redirect to="/" />;
@@ -25,14 +27,14 @@ export default function RouterWrapper({
     return (
         <Route
             {...rest}
-            render={props => (
+            render={(props) => (
                 <Layout>
                     <Component {...props} />
                 </Layout>
             )}
         />
     );
-};
+}
 
 RouterWrapper.propTypes = {
     isPrivate: PropTypes.bool,
