@@ -5,7 +5,7 @@ import api from '~/services/api';
 
 import { signInSucess, signFailure } from './actions';
 
-export function* signIN({ payload }) {
+export function* signIn({ payload }) {
     try {
         const { email, password } = payload;
 
@@ -20,6 +20,12 @@ export function* signIN({ payload }) {
             toast.error('Usuário não é prestador');
             return;
         }
+
+        api.defaults.headers.Authorization = `Baerer ${token}`;
+
+
+
+
         yield put(signInSucess(token, user));
 
         history.push('/dashboard');
@@ -45,7 +51,18 @@ export function* SignUp({ payload }) {
     }
 }
 
+export function setToken({ payload }) {
+    if (!payload) return;
+
+    const { token } = payload.auth;
+
+    if (token) {
+        api.defaults.headers.Authorization = `Baerer ${token}`;
+    }
+}
+
 export default all([
-    takeLatest('@auth/SIGN_IN_REQUEST', signIN),
+    takeLatest('persist/REHYDRATE', setToken),
+    takeLatest('@auth/SIGN_IN_REQUEST', signIn),
     takeLatest('@auth/SIGN_UP_REQUEST', SignUp),
 ]);
