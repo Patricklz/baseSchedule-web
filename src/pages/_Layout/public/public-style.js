@@ -62,7 +62,7 @@ export const Content = styled.div`
             opacity: 0.8;
 
             &:hover {
-                opacity 1;
+                opacity: 1;
             }
         }
     }
