@@ -1,6 +1,6 @@
 Curso GoStack 10 - RockeatSeat: https://rocketseat.com.br/
 
-FrontEnt em react do GoBarbarber, um sistema de agendamento.
+FrontEnd de um sistema de agendamento em React.
 
 O GoStack é um treinamento online, prático e intensivo, no formato de bootcamp. No GoStack o aluno vai a fundo nas tecnologias NodeJS, ReactJS e React Native, e todo o ecossistema ao redor dessas ferramentas, do zero ao deploy. Incluindo testes automatizados, integração contínua, publicação nas stores, e todas as bibliotecas e frameworks importantes para quem deseja ficar pronto para os desafios do mundo real e se destacar no mercado de trabalho. No GoStack os módulos são liberados semana a semana de acordo com o cronograma da turma, utilizando o nosso método para te dar segurança e mostrar que você está assimilando todos os conceitos através de exercícios e desafios. 
 
